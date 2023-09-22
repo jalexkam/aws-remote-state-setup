@@ -82,6 +82,13 @@ resource "aws_s3_bucket_versioning" "state_bucket" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "remote_state" {
+  bucket = aws_s3_bucket.state_bucket.id
+
+  rule {
+    object_ownership = "ObjectWriter"
+  }
+}
 resource "aws_iam_group" "bucket_full_access" {
 
   name = "${local.bucket_name}-full-access"
