@@ -1,3 +1,3 @@
-full_access_users = ["alex.meli@uyrdoctors.com"]
+full_access_users = [""]
 
-read_only_users = ["melal.car@hotmail.com"]
+read_only_users = [""]
