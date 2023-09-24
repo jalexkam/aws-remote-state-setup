@@ -38,7 +38,8 @@ resource "aws_dynamodb_table" "terraform_statelock" {
 resource "aws_s3_bucket" "state_bucket" {
   bucket = local.bucket_name
   tags = {
-    Project = "Alexandre"
+    Project  = "Alexandre"
+    Location = "Cardiff"
   }
   force_destroy = true
 }
