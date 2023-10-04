@@ -6,7 +6,8 @@ aws_region = "us-east-1"
 
 aws_bucket = "state-bucket"
 
-
 aws_dynamodb_table = "state-table"
 
 aws_profile = "alex-meli-card-admincli"
+
+project = "basic-terraform-atlantis-with-tfvars"

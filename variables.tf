@@ -19,6 +19,11 @@ variable "aws_region" {
   type        = string
 }
 
+variable "project" {
+  description = "The project the s3 will be used for"
+  type        = string
+}
+
 variable "full_access_users" {
   description = "Full access users list"
   type        = list(string)
