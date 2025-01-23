@@ -14,5 +14,9 @@
 # .pem files
 *.pem
 
+*.terraform.lock.hcl
+
+*.tfvars
+
 #terraform-CD.yml
 #backend.tf

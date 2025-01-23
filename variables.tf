@@ -1,7 +1,8 @@
 
-variable "aws_profile" {
-  description = "AWS Profile"
+variable "project_name" {
+  description = "Name of the project"
   type        = string
+  default = "Dev"
 }
 
 variable "aws_bucket" {
@@ -23,6 +24,7 @@ variable "full_access_users" {
   description = "Full access users list"
   type        = list(string)
 }
+
 variable "read_only_users" {
   description = "read only users list"
   type        = list(string)
