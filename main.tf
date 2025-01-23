@@ -5,8 +5,7 @@
 ##################################################################################
 
 provider "aws" {
-  profile = "alex-meli-card-admincli"
-  region  = var.aws_region
+  region = var.aws_region
 }
 
 ##################################################################################
@@ -20,8 +19,8 @@ resource "random_integer" "rand" {
 
 locals {
 
-  dynamodb_table_name = "${var.aws_dynamodb_table}-${random_integer.rand.result}"
-  bucket_name         = "${var.aws_bucket}-${random_integer.rand.result}"
+  dynamodb_table_name = lower("${var.project_name}-${var.aws_dynamodb_table}-${random_integer.rand.result}")
+  bucket_name         = lower("${var.project_name}-${var.aws_bucket}-${random_integer.rand.result}")
 }
 
 resource "aws_dynamodb_table" "terraform_statelock" {
@@ -39,11 +38,6 @@ resource "aws_s3_bucket" "state_bucket" {
   bucket        = local.bucket_name
   force_destroy = true
 }
-
-# resource "aws_s3_bucket_acl" "state_bucket" {
-#   bucket = aws_s3_bucket.state_bucket.id
-#   acl    = "private"
-# }
 
 resource "aws_s3_bucket_versioning" "state_bucket" {
   bucket = aws_s3_bucket.state_bucket.id
